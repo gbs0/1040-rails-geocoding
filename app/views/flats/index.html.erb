@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Flats</h1>
+
+<div id="flats">
+  <% @flats.each do |flat| %>
+    <%= render flat %>
+    <p>
+      <%= link_to "Show this flat", flat %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New flat", new_flat_path %>
+
+<div id='map' data-controller="map"
+ data-map-api-key-value="<%= ENV['MAPBOX_API'] %>"
+ data-map-markers-value="<%= @markers.to_json %>"
+ style='width: 80vw; height: 300px;'></div>
